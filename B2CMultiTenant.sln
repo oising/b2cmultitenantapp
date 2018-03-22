@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B2CMultiTenant", "B2CMultiTenant\B2CMultiTenant.csproj", "{E67234EE-0957-47F2-A273-47314C645F17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Policies", "Policies", "{A59B9DA1-B6A0-4049-8AA3-81FBC85A28CC}"
+	ProjectSection(SolutionItems) = preProject
+		Policies\PasswordReset.xml = Policies\PasswordReset.xml
+		Policies\ProfileEdit.xml = Policies\ProfileEdit.xml
+		Policies\SignUpOrSignin.xml = Policies\SignUpOrSignin.xml
+		Policies\TrustFrameworkBase.xml = Policies\TrustFrameworkBase.xml
+		Policies\TrustFrameworkExtensions.xml = Policies\TrustFrameworkExtensions.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{CCEAF9C0-1F9A-48B3-8B84-67DB0E88070A}"
+	ProjectSection(SolutionItems) = preProject
+		UI\b2cframe.html = UI\b2cframe.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{18B29976-269D-4DDD-8B08-E8B088D25C09}"
+	ProjectSection(SolutionItems) = preProject
+		UI\css\bootstrap.css = UI\css\bootstrap.css
+		UI\css\global.css = UI\css\global.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{40798600-0C5E-406C-BC55-A95F87D89AED}"
+	ProjectSection(SolutionItems) = preProject
+		UI\js\analytics.js = UI\js\analytics.js
+		UI\js\selfasserted-appfactor-registration.js = UI\js\selfasserted-appfactor-registration.js
+		UI\js\selfasserted-appfactor.js = UI\js\selfasserted-appfactor.js
+		UI\js\selfasserted-listenerprofileupdate.js = UI\js\selfasserted-listenerprofileupdate.js
+		UI\js\selfasserted-playerprofileregistration-basic.js = UI\js\selfasserted-playerprofileregistration-basic.js
+		UI\js\selfasserted-playerprofileregistration-full.js = UI\js\selfasserted-playerprofileregistration-full.js
+		UI\js\selfasserted-playerprofileupdate.js = UI\js\selfasserted-playerprofileupdate.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{2DBB838E-DA44-443F-870D-6C89BCF6C2EF}"
+	ProjectSection(SolutionItems) = preProject
+		UI\images\activedirectory.png = UI\images\activedirectory.png
+		UI\images\googleplus.png = UI\images\googleplus.png
+		UI\images\logo.png = UI\images\logo.png
+		UI\images\microsoft.png = UI\images\microsoft.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E67234EE-0957-47F2-A273-47314C645F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E67234EE-0957-47F2-A273-47314C645F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E67234EE-0957-47F2-A273-47314C645F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E67234EE-0957-47F2-A273-47314C645F17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{18B29976-269D-4DDD-8B08-E8B088D25C09} = {CCEAF9C0-1F9A-48B3-8B84-67DB0E88070A}
+		{40798600-0C5E-406C-BC55-A95F87D89AED} = {CCEAF9C0-1F9A-48B3-8B84-67DB0E88070A}
+		{2DBB838E-DA44-443F-870D-6C89BCF6C2EF} = {CCEAF9C0-1F9A-48B3-8B84-67DB0E88070A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B34BC29A-777B-4925-A0B1-F5B3F6B32FBF}
+	EndGlobalSection
+EndGlobal

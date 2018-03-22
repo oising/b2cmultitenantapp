@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Multi-tenant app</h1>
+    <p class="lead">Demo of a multi-tenant application using Azure AD B2C as its user store. It demonstrates how users of B2C
+    (social or local accounts) can interact with the application to create new application (not B2C) tenants, join existing tenants and access
+    the application business functionality. Any user in the B2C tenant owned by the application can create or join multiple application
+    tenants.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Create a new application tenant</h2>
+        <p>
+            Use the <a href="/Account/SignInCreator">Sign in to create...</a> to signup/in to the B2C tenant and then create a new application tenant.
+            A user who creates an application tenant automatically becomes its administrator. An administrator can <a href="/RedemptionCodes/Index">create redemption codes</a> for
+            use by others to join the tenant as users.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Join an existing tenant as a user</h2>
+        <p>Use the <a href="/Account/SignIn">Signin to use...</a> to either signup for an existing application tenant and become its registered user
+        or to use an application tenant you have already signed up for. To signup for an application you will need a redemption code from
+        the tenant's administrator/woner.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Tenant business functionality</h2>
+        <p>To use the regular tenant functionality you need to be a member of an existing tenant. You can be a member of multiple 
+        tenants. Use <p>Go to <a href="/Tenants/Index">tenant list</a> to choose the tenant you wish to use.</p>
+    </div>
+</div>

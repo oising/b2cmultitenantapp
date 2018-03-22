@@ -3,3 +3,7 @@
 ################################################################################
 
 /B2CMultiTenant.txt
+/B2CMultiTenant/Settings.txt
+/B2CMultiTenant/obj
+/B2CMultiTenant/bin
+/packages
