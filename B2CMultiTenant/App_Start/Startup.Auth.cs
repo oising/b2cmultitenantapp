@@ -49,7 +49,7 @@ namespace B2CMultiTenant
             app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
-                    AuthenticationType = Constants.AAD_ClassicAuthn,
+                    AuthenticationType = Constants.AAD_ClassicAuth,
                     ClientId = ConfigurationManager.AppSettings["aad:ClientId"],
                     Authority = "https://login.microsoftonline.com/common/",
                     TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
@@ -112,7 +112,7 @@ namespace B2CMultiTenant
                             ctx.AuthenticationTicket.Identity.AddClaim(new System.Security.Claims.Claim(Constants.TenantTypeClaim, Constants.B2CTenantType));
                             var userId = ctx.AuthenticationTicket.Identity.Claims.First(c => c.Type == Constants.ObjectIdClaim).Value;
                             var roles = db.UserRoles.Where(r => r.UserObjectId == userId);
-                            if (roles.Count() > 0)
+                            if (roles.Any())
                             {
                                 //TODO: use a persistent cookie to hold unto user tenant preference for future sessions
                                 var tenantId = roles.First().TenantId;
@@ -125,7 +125,7 @@ namespace B2CMultiTenant
                             await Task.FromResult(0);
                         } catch(Exception ex)
                         {
-                            throw new SecurityTokenValidationException();
+                            throw new SecurityTokenValidationException(ex.Message, ex);
                         }
                     },
                 },

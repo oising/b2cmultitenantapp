@@ -7,7 +7,7 @@ namespace B2CMultiTenant.Utilities
 {
     public static class Constants
     {
-        public static readonly string AAD_ClassicAuthn = "AAD-MT";
+        public static readonly string AAD_ClassicAuth = "AAD-MT";
         public static readonly string TenantIdClaim = "TenantId";
         public static readonly string TenantNameClaim = "TenantName";
         public static readonly string ObjectIdClaim = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";

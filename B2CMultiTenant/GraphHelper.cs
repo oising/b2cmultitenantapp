@@ -4,39 +4,38 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace B2CMultiTenant
 {
-    public class GraphHelper
+    public static class GraphHelper
     {
         public static async Task GetUserAttr(string userId, User user)
         {
-            var tenantId = ClaimsPrincipal.Current.Claims.FirstOrDefault(c => c.Type == Constants.TenantIdClaim).Value;
+            var tenantId = ClaimsPrincipal.Current.Claims.FirstOrDefault(c => c.Type == Constants.TenantIdClaim)?.Value;
             var ctx = new AuthenticationContext("https://login.microsoftonline.com/b2cmultitenant.onmicrosoft.com/");
             var resp = ctx.AcquireTokenAsync("https://graph.windows.net",
-                new Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential(
+                new ClientCredential(
                     "b2672267-bc35-4e97-b36a-913bffed4643",
                     "VWGLdG+YTjzCksOdCw9xls5/oPlUNuiDnaiEa0oa/P4=")).Result;
             var http = new HttpClient();
-            var requestUri = String.Format("https://graph.windows.net/b2cmultitenant.onmicrosoft.com/users/{0}?api-version=1.6", userId);
+            var requestUri = $"https://graph.windows.net/b2cmultitenant.onmicrosoft.com/users/{userId}?api-version=1.6";
             http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", resp.AccessToken);
             var usersJson = await http.GetStringAsync(requestUri);
             user.DisplayName = (string) JObject.Parse(usersJson)["displayName"];
         }
-        private async Task<bool> UpdateCustomAttr(string tenantId, string userObjId)
+
+        private static async Task<bool> UpdateCustomAttr(string tenantId, string userObjId)
         {
             //var users = http.GetStringAsync(String.Format("https://graph.windows.net/b2cmultitenant.onmicrosoft.com/users/{0}?api-version=1.6", userObjId)).Result;
             //var users = http.GetStringAsync(String.Format("https://graph.windows.net/b2cmultitenant.onmicrosoft.com/applications/{0}/extensionProperties?api-version=1.6", extApp)).Result;
 
             var ctx = new AuthenticationContext("https://login.microsoftonline.com/b2cmultitenant.onmicrosoft.com/");
             var resp = ctx.AcquireTokenAsync("https://graph.windows.net",
-                new Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential(
+                new ClientCredential(
                     "b2672267-bc35-4e97-b36a-913bffed4643",
                     "VWGLdG+YTjzCksOdCw9xls5/oPlUNuiDnaiEa0oa/P4=")).Result;
 

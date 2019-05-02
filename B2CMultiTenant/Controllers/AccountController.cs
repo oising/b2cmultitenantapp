@@ -18,7 +18,7 @@ namespace B2CMultiTenant.Controllers
             if (!Request.IsAuthenticated)
             {
                 var authType = ((Request.Url.Segments.Length > 1) && (Request.Url.Segments[1].ToLower() == "aad/")) ?
-                    Constants.AAD_ClassicAuthn : Startup.SignUpInPolicyId;
+                    Constants.AAD_ClassicAuth : Startup.SignUpInPolicyId;
                 HttpContext.GetOwinContext().Authentication.Challenge(
                     new AuthenticationProperties() { RedirectUri = "/" }, authType);
             }
